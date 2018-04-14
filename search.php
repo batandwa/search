@@ -1,13 +1,5 @@
 <?php
 $searchPerformed = isset($_GET['search']) && !empty($_GET['search']);
-if ($searchPerformed) {
-    $mysqli = new mysqli("db", "root", "safehack", "safehack");
-
-    if ($mysqli->connect_errno) {
-        echo $mysqli->connect_error;
-        die("Application offline.");
-    }
-}
 ?>
 <!doctype html>
 <html lang="en">
@@ -87,6 +79,7 @@ if ($searchPerformed): ?>
                 endif;
                 ?>
             </div>
+
         </div>
     </div>
 <?php endif ?>
