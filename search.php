@@ -83,7 +83,7 @@ if ($searchPerformed): ?>
             <div class="col-xl">
                 <?php
                 if ($searchPerformed):
-                    fixedSqlInjection($mysqli);
+                    performSearch($mysqli);
                 endif;
                 ?>
             </div>

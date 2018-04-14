@@ -4,7 +4,7 @@
  * @param $title
  * @param $description
  */
-function fixedSqlInjection($mysqli) {
+function performSearch($mysqli) {
     $searchkey = "%{$_GET['search']}%";
     $stmt = $mysqli->prepare("SELECT id,title,description FROM pages WHERE title like ? or keywords like ? or description like ?");
     $stmt->bind_param('sss', $searchkey, $searchkey, $searchkey);
