@@ -82,9 +82,9 @@ if ($searchPerformed): ?>
         <div class="row">
             <div class="col-xl">
                 <?php
-                if ($searchPerformed):
-                    fixedSqlInjection($mysqli);
-                endif;
+                if ($searchPerformed) {
+                    performSearch($mysqli);
+                }
                 ?>
             </div>
         </div>

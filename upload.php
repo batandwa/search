@@ -46,13 +46,9 @@ if (isset($_POST['submit'])) {
     if ($size <= 512000) {
         $fileDestination = 'uploads/' . $name;
         move_uploaded_file($tmp_name, $fileDestination);
-        //	header("Location: indexx.php?uploadsuccess");
+        parseXml($fileDestination);
         echo "upload success";
     } else {
         echo "Your file is too big!!";
     }
 }
-
-?>
-
-
