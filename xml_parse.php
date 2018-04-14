@@ -7,9 +7,11 @@ $statement->bind_param('sss', $title, $keywords, $description);
 
 foreach ($xml->property as $prop) {
     $description = substr($prop->description, 0, 490);
-    $keywords = $prop->keywords;
-    $title = $prop->title;
+    $description = $vulnerable ? $description : htmlentities($description);
+    $keywords = $vulnerable ? $prop->keywords : htmlentities($prop->keywords);
+    $title = $vulnerable ? $prop->title : htmlentities($prop->title);
     $statement->execute();
+    echo $statement->error;
 }
 
 $statement->close();
