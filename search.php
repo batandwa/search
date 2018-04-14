@@ -81,11 +81,7 @@ if ($searchPerformed): ?>
     <div class="container results">
         <div class="row">
             <div class="col-xl">
-                <?php
-                if ($searchPerformed) {
-                    performSearch($mysqli);
-                }
-                ?>
+                <?php performSearch($mysqli); ?>
             </div>
         </div>
     </div>
