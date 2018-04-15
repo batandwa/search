@@ -27,16 +27,12 @@ $statement = $mysqli->prepare($sql);
 echo $mysqli->error;
 $statement->bind_param('sddsiss', $title, $price, $deposit, $image_url, $bedrooms, $provider_url, $description);
 
-$jsonData = array_slice($jsonData, 0, 10);
+$jsonData = array_slice($jsonData, 0, 100);
 foreach ($jsonData as $property) {
-//foreach ($xml->property as $prop) {
     $parsedProperty = parseCrawlerProperty($property);
 
     $title = $parsedProperty['title'];
     extract($parsedProperty, EXTR_OVERWRITE);
-//    $description = substr($prop->description, 0, 490);
-//    $description = $vulnerable ? $description : htmlentities($description);
-//    $keywords = $vulnerable ? $prop->keywords : htmlentities($prop->keywords);
     $statement->execute();
     echo $statement->error;
 }
@@ -45,6 +41,7 @@ function parseCrawlerProperty($property) {
     $result = array();
 
     $result['title'] = isset($property->title) ? $property->title[0] : null;
+    $result['title'] = substr($result['title'], 0, 490);
     $result['price'] = isset($property->price) ? $property->price[0] : null;
     $result['image_url'] = isset($property->image) ? $property->image[0] : null;
     $result['bedrooms_raw'] = isset($property->bedrooms) ? $property->bedrooms[0] : null;
@@ -57,7 +54,7 @@ function parseCrawlerProperty($property) {
     $result['price'] = isset($property->price) ? $property->price[0] : null;
     $result['price'] = parsePrice($result['price']);
     $result['deposit'] = isset($property->deposit) ? $property->deposit[0] : null;
-    $result['offer'] = determineOffer($result['url']);
+    $result['offer'] = determineOffer($result['provider_url']);
 
     return $result;
 }
