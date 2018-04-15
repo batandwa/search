@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+    db:
+        image: mysql:5.7
+        environment:
+            MYSQL_ROOT_PASSWORD: safehack
+            MYSQL_DATABASE: safehack
+    app:
+        # image: php:7.2-cli-alpine
+        image: batandwa/docker-php:php56
+        command: php -S 0.0.0.0:8080 -t /app
+        volumes:
+            - .:/app
+        ports:
+            - 8002:8080
+    scraper:
+        image: batandwa/docker-php:php56
+        command: php /app/crawler_import.php
+        volumes:
+            - .:/app
+    db-admin:
+        image: phpmyadmin/phpmyadmin:4.6.2-3
+        environment:
+            PMA_HOST: db
+        ports:
+            - 9002:80
+    test:
+        image: ubuntu:16.04
+        network_mode: host
+        command: sleep 999999
