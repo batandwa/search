@@ -1,13 +1,5 @@
 <?php
 $searchPerformed = isset($_GET['search']) && !empty($_GET['search']);
-if ($searchPerformed) {
-    $mysqli = new mysqli("localhost", "root", "", "safehack");
-
-    if ($mysqli->connect_errno) {
-        echo $mysqli->connect_error;
-        die("Application offline.");
-    }
-}
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,7 +12,7 @@ if ($searchPerformed) {
 
     <title>SearchEngine</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    <link rel="stylesheet" href="bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
     <link href="main.css" rel="stylesheet">
@@ -37,7 +29,7 @@ if ($searchPerformed) {
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand" href="#">
-                <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72"
+                <img class="mb-4" src="bootstrap-solid.svg" alt="" width="72"
                      height="72">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -62,7 +54,7 @@ if ($searchPerformed) {
         <div class="row">
             <div class="col-xl">
                 <form method="get" action="index.php" class="form-signin">
-                    <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72"
+                    <img class="mb-4" src="bootstrap-solid.svg" alt="" width="72"
                          height="72">
                     <div class="form-group">
                         <input type="text" class="form-control" name="search" aria-describedby="emailHelp"
