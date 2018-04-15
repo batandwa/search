@@ -6,14 +6,14 @@
  */
 function performSearch($mysqli) {
     $searchkey = "%{$_GET['search']}%";
-    $stmt = $mysqli->prepare("SELECT id,title,description FROM pages WHERE title like ? or keywords like ? or description like ?");
+    $stmt = $mysqli->prepare("SELECT title,description,provider_url FROM pages WHERE title like ? or description like ? or provider_url like ?");
     $stmt->bind_param('sss', $searchkey, $searchkey, $searchkey);
     $querySuccessful = $stmt->execute();
     $output = '';
 
     if ($querySuccessful) {
         $stmt->store_result();
-        $stmt->bind_result($id, $title, $description);
+        $stmt->bind_result($title, $description, $provider_url);
 
         printf("Select returned %d rows.\n", $stmt->num_rows);
         while ($stmt->fetch()) {

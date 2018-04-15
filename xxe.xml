@@ -1,0 +1,14 @@
+<!DOCTYPE properties [
+        <!ENTITY c PUBLIC "bar" "/etc/passwd">
+        ]>
+<properties>
+    <!--<root>-->
+        <!--<test>Test</test>-->
+        <!--<sub>&c;</sub>-->
+    <!--</root>-->
+    <property>
+        <title><![CDATA[<script>alert(1)</script>]]></title>
+        <keywords>sensor,bus,panel,monitor</keywords>
+        <description>&c;</description>
+    </property>
+</properties>

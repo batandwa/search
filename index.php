@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
 
-$mysqli = new mysqli("db", "root", "safehack", "safehack");
+$mysqli = new mysqli("localhost", "root", "", "safehack");
 if ($mysqli->connect_errno) {
     die("Application offline.");
 }

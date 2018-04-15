@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+</head>
+
 <body>
 
 <form action="index.php?mode=upload" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <br>
-    <input type="file" name="file" id="file">
-    <br>
-    <input type="submit" value="Upload Image" name="submit">
+    Select file to upload:
+	<br>
+	<br>
+<!--	<br>
+    <input type="file" name="file" id="file" class="input-group mb-3">
+	<br>
+    <input type="submit" value="Upload Image" name="submit" class="input-group-text">
+	
+	-->
+	
+	<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <input type="submit" value="Upload" name="submit" class="input-group-text">
+  </div>
+  <div class="custom-file">
+    <input type="file" name="file" class="custom-file-input" id="inputGroupFile01">
+    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+  </div>
+</div>
 </form>
 
 </body>

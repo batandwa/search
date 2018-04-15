@@ -1,7 +1,7 @@
 <?php
 $searchPerformed = isset($_GET['search']) && !empty($_GET['search']);
 if ($searchPerformed) {
-    $mysqli = new mysqli("db", "root", "safehack", "safehack");
+    $mysqli = new mysqli("localhost", "root", "", "safehack");
 
     if ($mysqli->connect_errno) {
         echo $mysqli->connect_error;
