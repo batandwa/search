@@ -6,7 +6,7 @@
  */
 function performSearch($mysqli) {
     $searchkey = "%{$_GET['search']}%";
-    $stmt = $mysqli->prepare("SELECT title,description,provider_url FROM pages WHERE title like ? or description like ? or provider_url like ?");
+    $stmt = $mysqli->prepare("SELECT title,description,provider_url FROM pages WHERE title like ? or description like ? or provider_url like ? LIMIT 10");
     $stmt->bind_param('sss', $searchkey, $searchkey, $searchkey);
     $querySuccessful = $stmt->execute();
     $output = '';
