@@ -15,9 +15,9 @@ function performSearch($mysqli) {
         $stmt->store_result();
         $stmt->bind_result($title, $description, $provider_url);
 
-        printf("Select returned %d rows.\n", $stmt->num_rows);
+        printf("<em>Search returned %d rows.</em><br><br>\n", $stmt->num_rows);
         while ($stmt->fetch()) {
-            $output .= '<div><strong>' . $title . '</strong>';
+            $output .= '<div><a href="' . $provider_url . '"><strong>' . $title . '</strong></a>';
             $output .= '<p>' . $description . '</p></div>';
         }
     }
