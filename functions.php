@@ -20,13 +20,13 @@ function parseXml($file) {
         $description = $vulnerable ? $description : htmlentities($description);
    //     $keywords = $vulnerable ? $prop->keywords : htmlentities($prop->keywords);
         $title = $vulnerable ? $prop->title : htmlentities($prop->title);
-        $image_url = $vulnerable ? $image_url : htmlentities($image_url);
-        $bedrooms = $vulnerable ? $bedrooms : htmlentities($bedrooms);
-        $provider_url = $vulnerable ? $provider_url : htmlentities($provider_url);
-        $agent_contact = $vulnerable ? $agent_contact : htmlentities($agent_contact);
-        $address = $vulnerable ? $address : htmlentities($address);
-        $price = $vulnerable ? $price : htmlentities($price);
-        $deposit = $vulnerable ? $deposit : htmlentities($deposit);
+        $image_url = $vulnerable ? $prop->image_url : htmlentities($prop->image_url);
+        $bedrooms = $vulnerable ? $prop->bedrooms : htmlentities($prop->bedrooms);
+        $provider_url = $vulnerable ? $prop->provider_url : htmlentities($prop->provider_url);
+        $agent_contact = $vulnerable ? $prop->agent_contact : htmlentities($prop->agent_contact);
+        $address = $vulnerable ? $prop->address : htmlentities($prop->address);
+        $price = $vulnerable ? $prop->price : htmlentities($prop->price);
+        $deposit = $vulnerable ? $prop->deposit : htmlentities($prop->deposit);
         $statement->execute();
         echo $statement->error;
     }
